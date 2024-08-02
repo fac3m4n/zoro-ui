@@ -136,6 +136,9 @@
   "zkLink": {
     "content": "View on explorer.zksync.io"
   },
+  "polygonLink": {
+    "content": "View on polygonscan.com"
+  },
   "chip": {
     "proposalType": {
       "critical": "Critical",
@@ -159,7 +162,8 @@
     }
   },
   "connectButton": {
-    "title": "Connect wallet"
+    "title": "Connect wallet",
+    "polygon": "Connect Polygon network"
   },
   "connectWallet": {
     "connectButton": "Connect wallet"

@@ -1,14 +1,14 @@
-import { isFeatureEnabled } from 'utilities';
+import { isFeatureEnabled } from "utilities";
 
 export enum Subdirectory {
-  DASHBOARD = '/',
-  ACCOUNT = '/account',
+  DASHBOARD = "/",
+  ACCOUNT = "/account",
   //XVS = '/xvs',
-  POOLS = '/pools',
-  POOL = '/pool/:poolComptrollerAddress',
-  MARKETS = '/markets/:poolComptrollerAddress',
-  MARKET = '/market/:vTokenAddress',
-  NOTFOUND = '/404',
+  POOLS = "/pools",
+  POOL = "/pool/:poolComptrollerAddress",
+  MARKETS = "/markets/:poolComptrollerAddress",
+  MARKET = "/market/:vTokenAddress",
+  NOTFOUND = "/404",
   //HISTORY = '/history',
   //VAULTS = '/vaults',
   //GOVERNANCE = '/governance',
@@ -18,6 +18,7 @@ export enum Subdirectory {
   //SWAP = '/swap',
   //CONVERT_VRT = '/convert-vrt',
   //VAI = '/vai',
+  POLYGON = "/polygon",
 }
 
 const routeSubdirectories = {
@@ -27,7 +28,7 @@ const routeSubdirectories = {
   //pools: [Subdirectory.POOLS],
   //pool: [Subdirectory.POOLS, Subdirectory.POOL],
   markets: [Subdirectory.MARKETS],
-  market: isFeatureEnabled('isolatedPools')
+  market: isFeatureEnabled("isolatedPools")
     ? [Subdirectory.POOLS, Subdirectory.POOL, Subdirectory.MARKET]
     : [Subdirectory.MARKETS, Subdirectory.MARKET],
   notfound: [Subdirectory.NOTFOUND],
@@ -40,6 +41,7 @@ const routeSubdirectories = {
   //convertVrt: [Subdirectory.CONVERT_VRT],
   //vaults: [Subdirectory.VAULTS],
   //vai: [Subdirectory.VAI],
+  polygon: [Subdirectory.POLYGON],
 };
 
 type RouteName = keyof typeof routeSubdirectories;
@@ -57,10 +59,10 @@ export const routes = Object.keys(routeSubdirectories).reduce<Routes>(
       ? {
           ...obj,
           [key]: {
-            path: routeSubdirectories[key as RouteName].join(''),
+            path: routeSubdirectories[key as RouteName].join(""),
             subdirectories: routeSubdirectories[key as RouteName],
           },
         }
       : obj,
-  {} as Routes,
+  {} as Routes
 );

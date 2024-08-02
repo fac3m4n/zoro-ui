@@ -1,12 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import Typography from '@mui/material/Typography';
-import React from 'react';
-import { useTranslation } from 'translation';
-import { UrlType, generateZkScanUrl } from 'utilities';
-
-import { Breakpoint, EllipseAddress } from '../EllipseAddress';
-import { Icon } from '../Icon';
-import { useStyles } from './styles';
+import { Breakpoint, EllipseAddress } from "../EllipseAddress";
+import { Icon } from "../Icon";
+import { useStyles } from "./styles";
+import Typography from "@mui/material/Typography";
+import React from "react";
+import { useTranslation } from "translation";
+import { UrlType, generateZkScanUrl } from "utilities";
 
 export interface ZkLinkProps {
   hash: string;
@@ -35,7 +34,7 @@ export const ZkLink: React.FC<ZkLinkProps> = ({
       text
     );
   } else {
-    content = t('zkLink.content');
+    content = t("polygonLink.content");
   }
 
   return (
